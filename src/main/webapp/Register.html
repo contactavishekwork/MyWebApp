@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>Register User</title>
+
+        <script src="myactions.js" />
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+
+        <form action="/login" method="post" id="registerNewUser">
+            <div>
+                <table>
+                    <tr><td>Username: </td><td><input type="text" name="username" id="userName"> </td></tr>
+                    <tr><td>Password: </td><td><input type="password" name="pwd" id="pwd"> </td></tr>
+                    <tr><td>Confirm Password: </td><td><input type="password" name="cpwd" id="cpwd"> </td></tr>
+                    <tr><td>First Name: </td><td><input type="text" name="fname" id="firstName"> </td></tr>
+                    <tr><td>Last Name: </td><td><input type="text" name="lname" id="lastName"> </td></tr>
+                    <tr><td>Full Name: </td><td><input disabled = true type="text" name="fullName" id="fullName"> </td></tr>
+                    <tr><td>Email: </td><td><input type="email" name="email" id="email"> </td></tr>
+                    <tr><td colspan="2"><button onclick="validate()" name="Register" value="Register" type="button">Register </button>
+                        <button onclick="cancel()" name="Cancel" value="Cancel" type="button">Cancel </button>
+                        <button onclick="refresh()" name="ResetForm" value="ResetForm" type="button">Reset Form</button></td></tr>
+                </table>
+            </div>
+        </form>
+
+    </body>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</html>
