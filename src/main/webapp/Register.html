@@ -15,32 +15,86 @@ and open the template in the editor.
         <link rel="stylesheet"
               href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
         <!-- jQuery library -->
         <script
         src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
 
     <body>
-
-        <form action="/login" method="post" id="registerNewUser">
+        <p style="font-size:20px">Register New User: </p>
+        <form action="/login.html" method="post" id="registerNewUser" onsubmit="return validate()">
             <div>
                 <table>
-                    <tr><td>Username: </td><td><input type="text" name="username" id="userName"> </td></tr>
-                    <tr><td>Password: </td><td><input type="password" name="pwd" id="pwd"> </td></tr>
-                    <tr><td>Confirm Password: </td><td><input type="password" name="cpwd" id="cpwd"> </td></tr>
-                    <tr><td>First Name: </td><td><input type="text" name="fname" id="firstName"> </td></tr>
-                    <tr><td>Last Name: </td><td><input type="text" name="lname" id="lastName"> </td></tr>
+                    <th></th>
+                    <tr><td>Username: </td><td><input type="text" name="username" id="userName" required > </td></tr>
+                    <tr><td>Password: </td><td><input type="password" name="pwd" id="pwd" required> </td></tr>
+                    <tr><td>Confirm Password: </td><td><input type="password" name="cpwd" id="cpwd" required> </td></tr>
+                    <tr><td>First Name: </td><td><input type="text" name="fname" id="firstName" required > </td></tr>
+                    <tr><td>Last Name: </td><td><input type="text" name="lname" id="lastName" required> </td></tr>
                     <tr><td>Full Name: </td><td><input disabled = true type="text" name="fullName" id="fullName"> </td></tr>
                     <tr><td>Email: </td><td><input type="email" name="email" id="email"> </td></tr>
-                    <tr><td colspan="2"><button onclick="validate()" name="Register" value="Register" type="button">Register </button>
-                        <button onclick="cancel()" name="Cancel" value="Cancel" type="button">Cancel </button>
-                        <button onclick="refresh()" name="ResetForm" value="ResetForm" type="button">Reset Form</button></td></tr>
+                    <tr> </tr>
+                    <tr><td colspan="500"><button onclick="validate()" name="Register" value="Register" type="button" style="background-color: #ff5500">Register </button>
+                            <button onclick="window.location.href = '/MyWebApp/'" name="Cancel" value="Cancel" type="button">Cancel </button>
+                            <button name="ResetForm" value="ResetForm" type="reset">Reset Form</button></td></tr>
                 </table>
             </div>
         </form>
+        <script id="workFunctions">
+            function validate() {
+                var username = document.getElementById("userName").value;
+                var password = document.getElementById("pwd").value;
+                var cpassword = document.getElementById("cpwd").value;
+                var firstName = document.getElementById("firstName").value;
+                var lastName = document.getElementById("lastName").value;
+                var email = document.getElementById("email").value;
+
+                //document.getElementById("fullName").innerHTML = firstname + " " + lastName;
+                
+                if (username == "" || password == "" || cpassword == "" || firstName == "" || lastName == "" || email == "") {
+                    alert("Fields cannot be empty!!");
+                    return;
+                }
+
+
+                if (!(password === cpassword)) {
+                    alert("passwords do not match!!");
+                    return;
+                }
+
+
+                if (firstName.length < 8) {
+                    alert("Invalid First Name");
+                    return;
+                }
+                
+                if (alphanumeric(password)) {
+                    alert("Password is not alphanumeric!!");
+                }
+
+                window.location.href = "/login.html";
+
+            }
+
+            function isValid(str) {
+                return /[A-Z]+[a-z]+[0-9]+[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(str);
+            }
+
+            function alphanumeric(inputtxt) {
+                var letterNumber = /^[0-9a-zA-Z]+$/;
+                if (inputtxt.value.match(letterNumber)) {
+                    return true;
+                } else {                    
+                    return false;
+                }
+            }
+        </script>
 
     </body>
 
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--     Latest compiled JavaScript 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 </html>

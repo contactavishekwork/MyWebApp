@@ -1,17 +1,17 @@
-var username;
-var password;
-var cpassword;
-var firstName;
-var lastName;
-var email;
-
+//var username;
+//var password;
+//var cpassword;
+//var firstName;
+//var lastName;
+//var email;
+ 
 function validate() {
-    username = document.getElementById("userId").value;
-    password = document.getElementById("pwd").value;
-    cpassword = document.getElementById("cpwd").value;
-    firstName = document.getElementById("firstName").value;
-    lastName = document.getElementById("lastName").value;
-    email = document.getElementById("email").value;
+    var username = document.getElementById("userName").value;
+    var password = document.getElementById("pwd").value;
+    var cpassword = document.getElementById("cpwd").value;
+    var firstName = document.getElementById("firstName").value;
+    var lastName = document.getElementById("lastName").value;
+    var email = document.getElementById("email").value;
 
     if (firstName.length < 8) {
         alert("Invalid First Name");
@@ -55,11 +55,13 @@ function cancel(){
 }
 
 function refresh(){
-    document.getElementById("userId").innerHTML = "";
-    document.getElementById("pwd").innerHTML = "";
-    document.getElementById("cpwd").innerHTML = "";
-    document.getElementById("firstName").innerHTML = "";
-    document.getElementById("lastName").innerHTML = "";
-    document.getElementById("email").innerHTML = "";
-    document.getElementById("FullName").innerHTML = "";
+    var form = document.getElementById("registerNewUser");
+    form.reset();
+//    document.getElementById("userId").innerHTML = "";
+//    document.getElementById("pwd").innerHTML = "";
+//    document.getElementById("cpwd").innerHTML = "";
+//    document.getElementById("firstName").innerHTML = "";
+//    document.getElementById("lastName").innerHTML = "";
+//    document.getElementById("email").innerHTML = "";
+//    document.getElementById("FullName").innerHTML = "";
 }
