@@ -32,7 +32,7 @@ function validate() {
         alert("Password is not alphanumeric!!");
     }
     document.getElementById("fullName").innerHTML = firstname + " " + lastName;
-    document.getElementById("Register").submit();
+    window.location.href = "/MyWebApp";
 
 }
 

@@ -6,14 +6,17 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <meta charset="ISO-8859-1">
+
         <title>Register User</title>
+        <link rel="stylesheet" href="css/style.css" type="text/css"/>
 
         <script src="myactions.js" />
 
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet"
-              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!--         Latest compiled and minified CSS 
+                <link rel="stylesheet"
+                      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+
+
 
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -24,23 +27,66 @@ and open the template in the editor.
     </head>
 
     <body>
-        <p style="font-size:20px">Register New User: </p>
-        <form action="/login.html" method="post" id="registerNewUser" onsubmit="return validate()">
+        <!--        <img src="/img/arrow.png" onclick="window.location.href='/MyWebApp'">-->
+        <label for="body" class='login'>New User Registration</label>
+        <br>
+        <br>
+        <br>
+        <br>
+        <form action="/MyWebApp" method="post" id="registerNewUser" onsubmit="return validate()"class='login'>
             <div>
-                <table>
-                    <th></th>
-                    <tr><td>Username: </td><td><input type="text" name="username" id="userName" required > </td></tr>
-                    <tr><td>Password: </td><td><input type="password" name="pwd" id="pwd" required> </td></tr>
-                    <tr><td>Confirm Password: </td><td><input type="password" name="cpwd" id="cpwd" required> </td></tr>
-                    <tr><td>First Name: </td><td><input type="text" name="fname" id="firstName" required > </td></tr>
-                    <tr><td>Last Name: </td><td><input type="text" name="lname" id="lastName" required> </td></tr>
-                    <tr><td>Full Name: </td><td><input disabled = true type="text" name="fullName" id="fullName"> </td></tr>
-                    <tr><td>Email: </td><td><input type="email" name="email" id="email"> </td></tr>
-                    <tr> </tr>
-                    <tr><td colspan="500"><button onclick="validate()" name="Register" value="Register" type="button" style="background-color: #ff5500">Register </button>
-                            <button onclick="window.location.href = '/MyWebApp/'" name="Cancel" value="Cancel" type="button">Cancel </button>
-                            <button name="ResetForm" value="ResetForm" type="reset">Reset Form</button></td></tr>
-                </table>
+                <!--                <p>
+                                    <label for="label">Login Information</label>
+                                </p>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>-->
+                <p>                
+                    <label for="label">Username: </label>
+                    <input type="text" name="userName" id="userName" placeholder="JohnSmith" required>
+                </p>
+                <p>                
+                    <label for="label">Password: </label>
+                    <input type="password" name="pwd" id="pwd" placeholder="123456" required>
+                </p>
+                <p>                
+                    <label for="label">Password: </label>
+                    <input type="password" name="cpwd" id="cpwd" placeholder="123456" required>
+                </p>
+                <!--                <p>
+                                    <label for="label">Personal Information</label>                
+                                </p>-->
+                <br>
+                <br>
+                <br>
+                <br>
+
+                <p>                
+                    <label for="label">First Name: </label>
+                    <input type="text" name="fName" id="fName" placeholder="John" required>
+                </p>
+                <p>                
+                    <label for="label">Last Name: </label>
+                    <input type="text" name="lName" id="lName" placeholder="Smith" required>
+                </p>
+                <p>                
+                    <label for="label">Full Name: </label>
+                    <input type="text" name="fullName" id="fullName" placeholder="John Smith" disabled="yes">
+                </p>
+                <p>                
+                    <label for="label">Email: </label>
+                    <input type="email" name="email" id="email" placeholder="johnsmith@xyz.com" required>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <button type="submit" style="background-color: #ff3300" style="border-color: #ff3300">Submit</button>
+                    <button type="reset" style =" background-color: #00000" style ="border-bottom-color: #000000 ">Reset</button>
+                    <button type="submit" style =" background-color: #00000" style ="border-bottom-color: #000000 " onclick="window.location.href='index.html'">Cancel</button>
+                </p>
             </div>
         </form>
         <script id="workFunctions">
@@ -53,7 +99,7 @@ and open the template in the editor.
                 var email = document.getElementById("email").value;
 
                 //document.getElementById("fullName").innerHTML = firstname + " " + lastName;
-                
+
                 if (username == "" || password == "" || cpassword == "" || firstName == "" || lastName == "" || email == "") {
                     alert("Fields cannot be empty!!");
                     return;
@@ -70,12 +116,12 @@ and open the template in the editor.
                     alert("Invalid First Name");
                     return;
                 }
-                
+
                 if (alphanumeric(password)) {
                     alert("Password is not alphanumeric!!");
                 }
 
-                window.location.href = "/login.html";
+                window.location.href = "/MyWebApp";
 
             }
 
@@ -87,9 +133,12 @@ and open the template in the editor.
                 var letterNumber = /^[0-9a-zA-Z]+$/;
                 if (inputtxt.value.match(letterNumber)) {
                     return true;
-                } else {                    
+                } else {
                     return false;
                 }
+            }
+            function setFullName() {
+                document.getElementById("fullName").innerHTML = document.getElementById("firstName").value + " " + document.getElementById("lastName").value;
             }
         </script>
 
